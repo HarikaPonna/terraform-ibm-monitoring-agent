@@ -57,7 +57,7 @@ locals {
 resource "terraform_data" "install_required_binaries" {
   count = var.install_required_binaries ? 1 : 0
   triggers_replace = {
-    name             = var.name
+    name        = var.name
     script_hash = filesha256("${path.module}/scripts/install-binaries.sh")
   }
   provisioner "local-exec" {
